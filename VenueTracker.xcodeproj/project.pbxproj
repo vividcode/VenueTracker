@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8462508324997687001D9FFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462508224997687001D9FFE /* AppDelegate.swift */; };
+		8462508524997687001D9FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462508424997687001D9FFE /* SceneDelegate.swift */; };
+		8462508724997687001D9FFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462508624997687001D9FFE /* ViewController.swift */; };
+		8462508A24997687001D9FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8462508824997687001D9FFE /* Main.storyboard */; };
+		8462508C24997689001D9FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8462508B24997689001D9FFE /* Assets.xcassets */; };
+		8462508F24997689001D9FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8462508D24997689001D9FFE /* LaunchScreen.storyboard */; };
+		84BA31D32499779000316A07 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B32499778F00316A07 /* SplashViewController.swift */; };
+		84BA31D42499779000316A07 /* Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B52499778F00316A07 /* Updating.swift */; };
+		84BA31D52499779000316A07 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B62499778F00316A07 /* Updater.swift */; };
+		84BA31D62499779000316A07 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B72499778F00316A07 /* LocationProvider.swift */; };
+		84BA31D72499779000316A07 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B82499778F00316A07 /* Presenter.swift */; };
+		84BA31D82499779000316A07 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B92499778F00316A07 /* Fetcher.swift */; };
+		84BA31D92499779000316A07 /* Presenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31BA2499778F00316A07 /* Presenting.swift */; };
+		84BA31DA2499779000316A07 /* FakeLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31BC2499778F00316A07 /* FakeLocationProvider.swift */; };
+		84BA31DB2499779000316A07 /* URLOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31BD2499778F00316A07 /* URLOptions.swift */; };
+		84BA31DC2499779000316A07 /* RealLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31BE2499778F00316A07 /* RealLocationProvider.swift */; };
+		84BA31DD2499779000316A07 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31BF2499778F00316A07 /* Navigator.swift */; };
+		84BA31DE2499779000316A07 /* VenuePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C02499778F00316A07 /* VenuePresenter.swift */; };
+		84BA31DF2499779000316A07 /* VenueFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C12499778F00316A07 /* VenueFetcher.swift */; };
+		84BA31E02499779000316A07 /* URLParamProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C22499778F00316A07 /* URLParamProvider.swift */; };
+		84BA31E12499779000316A07 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C42499778F00316A07 /* NetworkManager.swift */; };
+		84BA31E22499779000316A07 /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C62499779000316A07 /* VenueListViewController.swift */; };
+		84BA31E32499779000316A07 /* VenueListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31C72499779000316A07 /* VenueListCell.swift */; };
+		84BA31E42499779000316A07 /* VenueListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BA31C82499779000316A07 /* VenueListCell.xib */; };
+		84BA31E52499779000316A07 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31CA2499779000316A07 /* Venue.swift */; };
+		84BA31E62499779000316A07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31CC2499779000316A07 /* Constants.swift */; };
+		84BA31E72499779000316A07 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31CD2499779000316A07 /* UIImageViewExtension.swift */; };
+		84BA31E82499779000316A07 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31CE2499779000316A07 /* UIViewControllerExtension.swift */; };
+		84BA31E92499779000316A07 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31CF2499779000316A07 /* UITableViewExtension.swift */; };
+		84BA31EA2499779000316A07 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31D02499779000316A07 /* UIViewExtension.swift */; };
+		84BA31EB2499779000316A07 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31D12499779000316A07 /* URLExtension.swift */; };
+		84BA31EC2499779000316A07 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31D22499779000316A07 /* FileManagerExtension.swift */; };
+		84BA31F3249977D300316A07 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31EE249977D300316A07 /* CoreDataManager.swift */; };
+		84BA31F4249977D300316A07 /* VenueModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31EF249977D300316A07 /* VenueModel+CoreDataClass.swift */; };
+		84BA31F5249977D300316A07 /* VenueModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31F0249977D300316A07 /* VenueModel+CoreDataProperties.swift */; };
+		84BA31F6249977D300316A07 /* VenueTrackerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31F1249977D300316A07 /* VenueTrackerModel.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8462507F24997687001D9FFE /* VenueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8462508224997687001D9FFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8462508424997687001D9FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8462508624997687001D9FFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8462508924997687001D9FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8462508B24997689001D9FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8462508E24997689001D9FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8462509024997689001D9FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BA31B32499778F00316A07 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		84BA31B52499778F00316A07 /* Updating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updating.swift; sourceTree = "<group>"; };
+		84BA31B62499778F00316A07 /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		84BA31B72499778F00316A07 /* LocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		84BA31B82499778F00316A07 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		84BA31B92499778F00316A07 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		84BA31BA2499778F00316A07 /* Presenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenting.swift; sourceTree = "<group>"; };
+		84BA31BC2499778F00316A07 /* FakeLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationProvider.swift; sourceTree = "<group>"; };
+		84BA31BD2499778F00316A07 /* URLOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLOptions.swift; sourceTree = "<group>"; };
+		84BA31BE2499778F00316A07 /* RealLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealLocationProvider.swift; sourceTree = "<group>"; };
+		84BA31BF2499778F00316A07 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		84BA31C02499778F00316A07 /* VenuePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuePresenter.swift; sourceTree = "<group>"; };
+		84BA31C12499778F00316A07 /* VenueFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueFetcher.swift; sourceTree = "<group>"; };
+		84BA31C22499778F00316A07 /* URLParamProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParamProvider.swift; sourceTree = "<group>"; };
+		84BA31C42499778F00316A07 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		84BA31C62499779000316A07 /* VenueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
+		84BA31C72499779000316A07 /* VenueListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListCell.swift; sourceTree = "<group>"; };
+		84BA31C82499779000316A07 /* VenueListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueListCell.xib; sourceTree = "<group>"; };
+		84BA31CA2499779000316A07 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		84BA31CC2499779000316A07 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84BA31CD2499779000316A07 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		84BA31CE2499779000316A07 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		84BA31CF2499779000316A07 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		84BA31D02499779000316A07 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		84BA31D12499779000316A07 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		84BA31D22499779000316A07 /* FileManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		84BA31EE249977D300316A07 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		84BA31EF249977D300316A07 /* VenueModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VenueModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84BA31F0249977D300316A07 /* VenueModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VenueModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84BA31F2249977D300316A07 /* RestaurantTrackerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantTrackerModel.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8462507C24997687001D9FFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8462507624997687001D9FFE = {
+			isa = PBXGroup;
+			children = (
+				8462508124997687001D9FFE /* VenueTracker */,
+				8462508024997687001D9FFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8462508024997687001D9FFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8462507F24997687001D9FFE /* VenueTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8462508124997687001D9FFE /* VenueTracker */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31ED249977D300316A07 /* CoreData */,
+				84BA31CB2499779000316A07 /* Extensions */,
+				84BA31C92499779000316A07 /* Model */,
+				84BA31B42499778F00316A07 /* Protocols */,
+				84BA31B22499778F00316A07 /* Splash */,
+				84BA31C32499778F00316A07 /* Utilities */,
+				84BA31C52499779000316A07 /* VenueListViewController */,
+				84BA31BB2499778F00316A07 /* ViewModel */,
+				8462508224997687001D9FFE /* AppDelegate.swift */,
+				8462508424997687001D9FFE /* SceneDelegate.swift */,
+				8462508624997687001D9FFE /* ViewController.swift */,
+				8462508824997687001D9FFE /* Main.storyboard */,
+				8462508B24997689001D9FFE /* Assets.xcassets */,
+				8462508D24997689001D9FFE /* LaunchScreen.storyboard */,
+				8462509024997689001D9FFE /* Info.plist */,
+			);
+			path = VenueTracker;
+			sourceTree = "<group>";
+		};
+		84BA31B22499778F00316A07 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31B32499778F00316A07 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		84BA31B42499778F00316A07 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31B52499778F00316A07 /* Updating.swift */,
+				84BA31B62499778F00316A07 /* Updater.swift */,
+				84BA31B72499778F00316A07 /* LocationProvider.swift */,
+				84BA31B82499778F00316A07 /* Presenter.swift */,
+				84BA31B92499778F00316A07 /* Fetcher.swift */,
+				84BA31BA2499778F00316A07 /* Presenting.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		84BA31BB2499778F00316A07 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31BC2499778F00316A07 /* FakeLocationProvider.swift */,
+				84BA31BD2499778F00316A07 /* URLOptions.swift */,
+				84BA31BE2499778F00316A07 /* RealLocationProvider.swift */,
+				84BA31BF2499778F00316A07 /* Navigator.swift */,
+				84BA31C02499778F00316A07 /* VenuePresenter.swift */,
+				84BA31C12499778F00316A07 /* VenueFetcher.swift */,
+				84BA31C22499778F00316A07 /* URLParamProvider.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84BA31C32499778F00316A07 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31C42499778F00316A07 /* NetworkManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		84BA31C52499779000316A07 /* VenueListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31C62499779000316A07 /* VenueListViewController.swift */,
+				84BA31C72499779000316A07 /* VenueListCell.swift */,
+				84BA31C82499779000316A07 /* VenueListCell.xib */,
+			);
+			path = VenueListViewController;
+			sourceTree = "<group>";
+		};
+		84BA31C92499779000316A07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31CA2499779000316A07 /* Venue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84BA31CB2499779000316A07 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31CC2499779000316A07 /* Constants.swift */,
+				84BA31CD2499779000316A07 /* UIImageViewExtension.swift */,
+				84BA31CE2499779000316A07 /* UIViewControllerExtension.swift */,
+				84BA31CF2499779000316A07 /* UITableViewExtension.swift */,
+				84BA31D02499779000316A07 /* UIViewExtension.swift */,
+				84BA31D12499779000316A07 /* URLExtension.swift */,
+				84BA31D22499779000316A07 /* FileManagerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84BA31ED249977D300316A07 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31EE249977D300316A07 /* CoreDataManager.swift */,
+				84BA31EF249977D300316A07 /* VenueModel+CoreDataClass.swift */,
+				84BA31F0249977D300316A07 /* VenueModel+CoreDataProperties.swift */,
+				84BA31F1249977D300316A07 /* VenueTrackerModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8462507E24997687001D9FFE /* VenueTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8462509324997689001D9FFE /* Build configuration list for PBXNativeTarget "VenueTracker" */;
+			buildPhases = (
+				8462507B24997687001D9FFE /* Sources */,
+				8462507C24997687001D9FFE /* Frameworks */,
+				8462507D24997687001D9FFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VenueTracker;
+			productName = VenueTracker;
+			productReference = 8462507F24997687001D9FFE /* VenueTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8462507724997687001D9FFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Nirav Bhatt";
+				TargetAttributes = {
+					8462507E24997687001D9FFE = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 8462507A24997687001D9FFE /* Build configuration list for PBXProject "VenueTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8462507624997687001D9FFE;
+			productRefGroup = 8462508024997687001D9FFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8462507E24997687001D9FFE /* VenueTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8462507D24997687001D9FFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8462508F24997689001D9FFE /* LaunchScreen.storyboard in Resources */,
+				84BA31E42499779000316A07 /* VenueListCell.xib in Resources */,
+				8462508C24997689001D9FFE /* Assets.xcassets in Resources */,
+				8462508A24997687001D9FFE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8462507B24997687001D9FFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BA31E12499779000316A07 /* NetworkManager.swift in Sources */,
+				84BA31E62499779000316A07 /* Constants.swift in Sources */,
+				84BA31E32499779000316A07 /* VenueListCell.swift in Sources */,
+				8462508724997687001D9FFE /* ViewController.swift in Sources */,
+				84BA31DF2499779000316A07 /* VenueFetcher.swift in Sources */,
+				84BA31E02499779000316A07 /* URLParamProvider.swift in Sources */,
+				8462508324997687001D9FFE /* AppDelegate.swift in Sources */,
+				84BA31DE2499779000316A07 /* VenuePresenter.swift in Sources */,
+				84BA31D72499779000316A07 /* Presenter.swift in Sources */,
+				84BA31F6249977D300316A07 /* VenueTrackerModel.xcdatamodeld in Sources */,
+				84BA31EC2499779000316A07 /* FileManagerExtension.swift in Sources */,
+				8462508524997687001D9FFE /* SceneDelegate.swift in Sources */,
+				84BA31D42499779000316A07 /* Updating.swift in Sources */,
+				84BA31E92499779000316A07 /* UITableViewExtension.swift in Sources */,
+				84BA31E52499779000316A07 /* Venue.swift in Sources */,
+				84BA31DA2499779000316A07 /* FakeLocationProvider.swift in Sources */,
+				84BA31D32499779000316A07 /* SplashViewController.swift in Sources */,
+				84BA31DD2499779000316A07 /* Navigator.swift in Sources */,
+				84BA31F5249977D300316A07 /* VenueModel+CoreDataProperties.swift in Sources */,
+				84BA31D92499779000316A07 /* Presenting.swift in Sources */,
+				84BA31D52499779000316A07 /* Updater.swift in Sources */,
+				84BA31E72499779000316A07 /* UIImageViewExtension.swift in Sources */,
+				84BA31DC2499779000316A07 /* RealLocationProvider.swift in Sources */,
+				84BA31D62499779000316A07 /* LocationProvider.swift in Sources */,
+				84BA31E82499779000316A07 /* UIViewControllerExtension.swift in Sources */,
+				84BA31F4249977D300316A07 /* VenueModel+CoreDataClass.swift in Sources */,
+				84BA31EA2499779000316A07 /* UIViewExtension.swift in Sources */,
+				84BA31EB2499779000316A07 /* URLExtension.swift in Sources */,
+				84BA31F3249977D300316A07 /* CoreDataManager.swift in Sources */,
+				84BA31DB2499779000316A07 /* URLOptions.swift in Sources */,
+				84BA31D82499779000316A07 /* Fetcher.swift in Sources */,
+				84BA31E22499779000316A07 /* VenueListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8462508824997687001D9FFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8462508924997687001D9FFE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8462508D24997689001D9FFE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8462508E24997689001D9FFE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8462509124997689001D9FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8462509224997689001D9FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8462509424997689001D9FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VenueTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonegamezone.VenueTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8462509524997689001D9FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VenueTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iphonegamezone.VenueTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8462507A24997687001D9FFE /* Build configuration list for PBXProject "VenueTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8462509124997689001D9FFE /* Debug */,
+				8462509224997689001D9FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8462509324997689001D9FFE /* Build configuration list for PBXNativeTarget "VenueTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8462509424997689001D9FFE /* Debug */,
+				8462509524997689001D9FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84BA31F1249977D300316A07 /* VenueTrackerModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84BA31F2249977D300316A07 /* RestaurantTrackerModel.xcdatamodel */,
+			);
+			currentVersion = 84BA31F2249977D300316A07 /* RestaurantTrackerModel.xcdatamodel */;
+			path = VenueTrackerModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8462507724997687001D9FFE /* Project object */;
+}
