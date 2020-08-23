@@ -25,7 +25,7 @@ class SplashViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
-        self.stackView.animateSubViewsSerially(tags: [10,20,30,40,50], tagIndex: 0, completion:
+        self.stackView.animatePulseSerially(tags: [10,20,30,40,50], tagIndex: 0, completion:
         {
             self.bannerLabel.alphaAnimation(bHide: false, completion: {
                 

@@ -9,6 +9,66 @@
 import Foundation
 import UIKit
 
+//MARK: IB properties
+extension UIView
+{
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+}
+
+enum AnimDirection: Int
+{
+    case fromRight = 1
+    case fromBottom = 2
+    case fromTop = 3
+    case fromLeft = 4
+}
+
+//MARK: Basics
+
+extension UIView
+{
+    func applyShadow()
+    {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shadowRadius = 1.0
+        self.layer.shadowOffset = CGSize(width: 0.0, height: -1.5)
+        self.layer.shadowOpacity = 0.8
+        self.layer.masksToBounds = false
+    }
+}
+
+//MARK: Animations
 extension UIView
 {
     func pulse()
@@ -41,7 +101,7 @@ extension UIView
         )
     }
     
-    func animateSubViewsSerially(tags: [Int], tagIndex: Int, completion:(()->())?)
+    func animatePulseSerially(tags: [Int], tagIndex: Int, completion:(()->())?)
     {
         if (tagIndex < 0 || tagIndex >= tags.count)
         {
@@ -64,7 +124,39 @@ extension UIView
         })
         { (_) in
             subView?.transform = origT
-            self.animateSubViewsSerially(tags:tags, tagIndex: tagIndex + 1, completion: completion)
+            self.animatePulseSerially(tags:tags, tagIndex: tagIndex + 1, completion: completion)
+        }
+    }
+    
+    class func animateSlideSerially(views: [UIView], containerBounds: CGRect, direction:AnimDirection)
+    {
+        var delayCounter = 0
+        let (initial,final) : (CGAffineTransform, CGAffineTransform) = {
+            switch(direction)
+            {
+                case .fromRight:
+                    return (CGAffineTransform(translationX:containerBounds.size.width, y:0),  CGAffineTransform.identity)
+                case .fromTop:
+                    return (CGAffineTransform(translationX:0, y:-containerBounds.size.height),  CGAffineTransform.identity)
+                case .fromBottom:
+                    return (CGAffineTransform(translationX:0, y:containerBounds.size.height),  CGAffineTransform.identity)
+                case .fromLeft:
+                    return (CGAffineTransform.identity, CGAffineTransform(translationX:-containerBounds.size.width, y:0))
+            }
+        }()
+        
+        for v in views {
+            v.transform = initial
+        }
+        
+        for v in views
+        {
+            UIView.animate(withDuration: 1.6, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations:
+            {
+                v.transform = final
+            }, completion: nil)
+            
+            delayCounter += 1
         }
     }
 }

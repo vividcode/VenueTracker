@@ -17,6 +17,7 @@ class VenueListCell: UITableViewCell {
 
     var thumbnailURL : NSURL?
     
+    @IBOutlet weak var containerView: UIView!
     @objc var favoriteButtonAction : (() -> ())?
     
     required init?(coder aDecoder: NSCoder)
@@ -27,7 +28,6 @@ class VenueListCell: UITableViewCell {
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        self.venueThumbnail.layer.cornerRadius = 8.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

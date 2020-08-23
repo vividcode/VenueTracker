@@ -8,6 +8,7 @@
 
 import Foundation
 typealias DATA_DOWNLOADED_BLOCK = (Array<Any>) -> Void
+typealias NO_DATA_BLOCK = () -> Void
 typealias DOWNLOAD_ERROR_BLOCK = (Error) -> Void
 
 class NetworkManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate
@@ -48,7 +49,7 @@ class NetworkManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate
         return rq
     }
     
-    func fetchFromRest(urlStr: String, timeOut: TimeInterval, dataDownloadedBlock: @escaping DATA_DOWNLOADED_BLOCK, errorBlock: @escaping DOWNLOAD_ERROR_BLOCK)
+    func fetchFromRest(urlStr: String, timeOut: TimeInterval, dataDownloadedBlock: @escaping DATA_DOWNLOADED_BLOCK, noDataBlock: @escaping NO_DATA_BLOCK, errorBlock: @escaping DOWNLOAD_ERROR_BLOCK)
     {
         let urlReq = self.makeGetRequest(urlStr: urlStr, timeOut: timeOut)
         let dataTask = self.session.dataTask(with: urlReq) { (data, urlResp, err) in
@@ -62,7 +63,8 @@ class NetworkManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate
                 guard let data = data
                     else
                 {
-                    throw JSONError.NoData
+                    noDataBlock()
+                    return
                 }
                 guard let resultJson = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.allowFragments]) as? [String:Any]
                     else

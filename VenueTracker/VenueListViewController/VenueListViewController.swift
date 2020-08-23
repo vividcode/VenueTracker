@@ -30,14 +30,15 @@ class VenueListViewController: UIViewController, UITableViewDataSource, UITableV
     {
         //workaround to access the last cell
         self.tableView.contentInset  = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
-        
+        self.tableView.isHidden = true
         self.tableView.register(UINib.init(nibName: "VenueListCell", bundle: .main), forCellReuseIdentifier: VenueListViewController.venueListCell)
         if (self.venueList.count == 0)
         {
             self.showLabel(msg: "🍽️ Scanning Attractions Nearby 🍽️")
-            self.tableView.isHidden = true
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -66,6 +67,11 @@ class VenueListViewController: UIViewController, UITableViewDataSource, UITableV
         let favoriteImageName = venue.isFavorite ? "favorite":"unfavorite"
         cell.venueFavoriteButton.setImage(UIImage.init(named: favoriteImageName), for: .normal)
         
+        DispatchQueue.main.async
+        {
+            cell.containerView.applyShadow()
+        }
+        
         cell.venueThumbnail.loadThumbNail(imageURL: NSURL(string: venue.listImageURLStr)!) { (img) in
             cell.venueThumbnail.alpha = 0
             
@@ -88,24 +94,10 @@ class VenueListViewController: UIViewController, UITableViewDataSource, UITableV
         if (self.venueList.count == 0)
         {
             self.venueList = newVenueList
-            
+            self.tableView.isHidden = false
             self.tableView.reloadData()
             
-            let originalTransform = CGAffineTransform.identity
-            let smallTransform = originalTransform.scaledBy(x: 0.05, y: 0.05)
-            
-            self.tableView.transform = smallTransform
-            UIView.animate(withDuration: 0.8, animations:
-            {
-                if (self.tableView.isHidden)
-                {
-                    self.tableView.isHidden = false
-                }
-                self.tableView.transform = originalTransform
-            })
-            { (_) in
-                
-            }
+            UIView.animateSlideSerially(views: self.tableView.visibleCells, containerBounds: self.tableView.bounds, direction: .fromBottom)
         }
         else
         {

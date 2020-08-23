@@ -12,89 +12,45 @@ import CoreData
 
 @objc(Venue)
 public class VenueModel: NSManagedObject
-{    
-    class func createVenueModel(venueJson: [String:Any])->VenueModel?
+{
+    class func createOrUpdateVenueModel(venue: Venue)
+    {
+        let coreData = CoreDataManager.sharedInstance
+        let context = coreData.queryContext
+        if let venueModel = VenueModel.getVenueModelForVenue(venue: venue)
+        {
+            self.updateVenueModel(venue: venue, venueModel: venueModel, context: context)
+            return
+        }
+        
+        self.createVenueModel(venue: venue)
+    }
+    
+    class func createVenueModel(venue: Venue)
     {
         let coreData = CoreDataManager.sharedInstance
         let context = coreData.mutationContext
         
-        guard let venueId = venueJson["location_id"] as? String
-        else
-        {
-            return nil
-        }
-        
-        guard let venueName = venueJson["name"] as? String
-        else
-        {
-            return nil
-        }
-        
         let venueModel = NSEntityDescription.insertNewObject(forEntityName: "VenueModel", into: context) as! VenueModel
-        venueModel.venueId = venueId
-        venueModel.venueName = venueName
+        venueModel.venueId = venue.venueId
+        venueModel.venueName = venue.venueName
         
-        if let shortDescription =  venueJson["ranking_subcategory"] as? String
-        {
-            venueModel.venueDescription = shortDescription
-        }
-        else
-        {
-            venueModel.venueDescription = ""
-        }
-        
-        if let photoJson = venueJson ["photo"] as? [String:Any],
-            let imageJson = photoJson["images"] as? [String:Any],
-            let listImage = imageJson["small"] as? [String:Any],
-            let listImageStr = listImage["url"] as? String
-        {
-            venueModel.listImageURLStr = listImageStr
-        }
-        else
-        {
-            venueModel.listImageURLStr = ""
-        }
-        
-        venueModel.isFavorite = false
+       
+        venueModel.venueDescription = venue.venueDescription
+        venueModel.listImageURLStr = venue.listImageURLStr
+        venueModel.isFavorite = venue.isFavorite
         
         do
         {
             try context.save()
-            return venueModel
         }
         catch let err
         {
-            print("Could not save Venue: \(venueName) - \(err)")
-            return nil
+            print("Could not save Venue: \(venue.venueName) - \(err)")
         }
     }
     
-    class func getVenueForVenueJson(venueJson: [String:Any])->VenueModel?
-    {
-        guard let venueId = venueJson["location_id"] as? String
-        else
-        {
-            return nil
-        }
-        
-        let fetchRequest = NSFetchRequest<VenueModel>(entityName: "VenueModel")
-        let context = CoreDataManager.sharedInstance.queryContext
-        
-        do
-        {
-            fetchRequest.predicate = NSPredicate(format: "venueId == %@", venueId)
-            let result = try context.fetch(fetchRequest) 
-            let venueModel = result.first
-            return venueModel
-        }
-        catch let err
-        {
-            print("Could not get Venue for Id: \(venueId) \(err)")
-            return nil
-        }
-    }
-    
-    class func updateVenueModel(venue: Venue)
+    class func getVenueModelForVenue(venue: Venue)->VenueModel?
     {
         let fetchRequest = NSFetchRequest<VenueModel>(entityName: "VenueModel")
         let context = CoreDataManager.sharedInstance.queryContext
@@ -102,20 +58,28 @@ public class VenueModel: NSManagedObject
         do
         {
             fetchRequest.predicate = NSPredicate(format: "venueId == %@", venue.venueId)
-            let result = try context.fetch(fetchRequest)
-            guard let venueModel = result.first
-            else
-            {
-                throw CoreDataCustomError.ObjectNotFound
-            }
-            
+            let result = try context.fetch(fetchRequest) 
+            let venueModel = result.first
+            return venueModel
+        }
+        catch let err
+        {
+            print("Could not get Venue for Id: \(venue.venueId) \(err)")
+            return nil
+        }
+    }
+    
+    class func updateVenueModel(venue: Venue, venueModel: VenueModel, context: NSManagedObjectContext = CoreDataManager.sharedInstance.mutationContext)
+    {
+        do
+        {
             venueModel.venueId = venue.venueId
             venueModel.venueName = venue.venueName
             venueModel.venueDescription = venue.venueDescription
             venueModel.listImageURLStr = venue.listImageURLStr
             venueModel.isFavorite = venue.isFavorite
             
-            try CoreDataManager.sharedInstance.mutationContext.save()
+            try context.save()
             
         }
         catch let customErr as CoreDataCustomError
@@ -126,22 +90,6 @@ public class VenueModel: NSManagedObject
         {
             print("Error saving Venue:\(venue.venueId) : \(err)")
         }
-        
-    }
-    
-    class func getOrCreateVenueForVenueJson(venueJson: [String:Any])->VenueModel?
-    {
-        if let venueModel = VenueModel.getVenueForVenueJson(venueJson: venueJson)
-        {
-            return venueModel
-        }
-        
-        if let venueModel = VenueModel.createVenueModel(venueJson: venueJson)
-        {
-            return venueModel
-        }
-        
-        return nil
     }
     
     class func getVenues(limit: Int)->[VenueModel]

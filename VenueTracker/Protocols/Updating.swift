@@ -7,8 +7,15 @@
 //
 
 import Foundation
+import CoreData
+
+protocol Model {
+
+}
 
 protocol Updating
 {
-    func updateDataModel()
+    static func getAll()->[Model]
+    static func fromDataModel(_ model: NSManagedObject)->Self
+    func toDataModel()
 }

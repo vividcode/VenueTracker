@@ -60,48 +60,54 @@ class VenueFetcher: Fetcher
             
             let throttledVenueArray = (venueArray as! [[String:Any]]).prefix(fetchCount)
             
-            let venueModels = throttledVenueArray.compactMap { (venueJson) -> VenueModel? in
-                let venueModel = VenueModel.getOrCreateVenueForVenueJson(venueJson: venueJson)
-                return (venueModel ?? nil)
-            }
-            
-            let venueList = venueModels.compactMap { (venueModel) -> Venue? in
-                let venue = Venue.venueFromModel(venueModel: venueModel)
-                return (venue ?? nil)
-            }
-            
-            if var presenter = self.presenter
+            do
             {
-                self.shouldNavigateBlock?()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2)
-                {
-                    presenter.dataItems = venueList
-                }
+                let venues = throttledVenueArray.compactMap { (venueJson) -> Venue? in
+                    let venue = Venue(venueJson: venueJson)
+                    return (venue)
+               }
                 
+                venues.forEach { (v) in
+                    v.toDataModel()
+                }
+               
+                self.updatePresenter(venueList: venues, shouldShowError: false)
             }
+        },
+        noDataBlock: {
+            let venues = Venue.getAll() as! [Venue]
+            
+            //Show pre-existing venues in DB if there is no preloaded results in the UI already
+            self.updatePresenter(venueList: venues, shouldShowError: true)
         },
         errorBlock:
         {
             (error) in
             print("API failed to return venues.")
-            
+            let venues = Venue.getAll() as! [Venue]
             //Show pre-existing venues in DB if there is no preloaded results in the UI already
-            let venueList = VenueModel.getVenues(limit: ResultLimit.VenueList)
+            self.updatePresenter(venueList: venues, shouldShowError: true)
+        })
+    }
+    
+    func updatePresenter(venueList: [Venue], shouldShowError: Bool)
+    {
+        if var presenter = self.presenter
+        {
+            self.shouldNavigateBlock?()
             
-            if var presenter = self.presenter
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
             {
-                self.shouldNavigateBlock?()
-                if (venueList.count > 0)
+                presenter.dataItems = venueList
+                if (shouldShowError)
                 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
                     {
-                        presenter.dataItems = venueList
+                        presenter.errorMessage = "Could not refresh Venues.\nPlease check your internet connection."
                     }
                 }
-                presenter.errorMessage = "Could not refresh Venues.\nPlease check your internet connection."
             }
-              
-        })
+        }
     }
     
     func cancelFetching()

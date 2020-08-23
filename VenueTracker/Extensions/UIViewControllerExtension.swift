@@ -33,6 +33,7 @@ extension UIViewController
         label.layer.masksToBounds = true
         label.tag = 100
         self.view.addSubview(label)
+        self.view.bringSubviewToFront(label)
     }
     
     func removeLabel()

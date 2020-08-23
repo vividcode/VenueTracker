@@ -25,7 +25,7 @@ extension Updater
     {
         for updatingObj in updatedObjects
         {
-            updatingObj.updateDataModel()
+            updatingObj.toDataModel()
         }
     }
 }

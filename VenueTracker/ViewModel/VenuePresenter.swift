@@ -11,9 +11,10 @@ import UIKit
 
 class VenuePresenter: Presenter
 {
+    private var _errorMessage: String
     var errorMessage: String?
     {
-        didSet(newVal)
+        set(newVal)
         {
             guard let newValue = newVal
             else
@@ -21,13 +22,19 @@ class VenuePresenter: Presenter
                 return
             }
             
+            _errorMessage = newValue
             DispatchQueue.main.async
             {
                 for presentingVC in self.presentingVCs
                 {
-                    presentingVC.showErrorMessage(errorMessage: newValue)
+                    presentingVC.showErrorMessage(errorMessage: self._errorMessage)
                 }
             }
+        }
+        
+        get
+        {
+            return _errorMessage
         }
     }
     
@@ -51,5 +58,6 @@ class VenuePresenter: Presenter
     {
         self.presentingVCs = presentingVCs
         self.dataItems = dataItems
+        self._errorMessage = ""
     }
 }

@@ -35,12 +35,12 @@ enum URLConstants: String, RawRepresentable
 
 struct RestFetchInterval
 {
-    static let VenueList = 10.0
+    static let VenueList = 60.0
 }
 
 struct ResultLimit
 {
-    static let VenueList = 15
+    static let VenueList = 10
 }
 
 
