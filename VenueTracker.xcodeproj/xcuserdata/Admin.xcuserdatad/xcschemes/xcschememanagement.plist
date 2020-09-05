@@ -6,8 +6,33 @@
 	<dict>
 		<key>VenueTracker.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>VenueTrackerTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8462507E24997687001D9FFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84D8813925038B80000BDF82</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84D8815725038EBD000BDF82</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
