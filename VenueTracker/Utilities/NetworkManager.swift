@@ -7,7 +7,7 @@
 //
 
 import Foundation
-typealias DATA_DOWNLOADED_BLOCK = (Array<Any>) -> Void
+typealias DATA_DOWNLOADED_BLOCK = (Data) throws -> Void
 typealias NO_DATA_BLOCK = () -> Void
 typealias DOWNLOAD_ERROR_BLOCK = (Error) -> Void
 
@@ -60,24 +60,22 @@ class NetworkManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate
                     throw err!
                 }
                 
-                guard let data = data
+                guard let dataDownloaded = data
                     else
                 {
                     noDataBlock()
                     return
                 }
-                guard let resultJson = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.allowFragments]) as? [String:Any]
-                    else
+                
+                guard let resultJson = try JSONSerialization.jsonObject(with: dataDownloaded, options: [JSONSerialization.ReadingOptions.allowFragments]) as? [String:Any]
+                               else
                 {
-                    throw JSONError.ConversionFailed
+                   throw JSONError.ConversionFailed
                 }
                 
-                guard let resultArray:[Any] = resultJson["data"] as? [Any] else
-                {
-                    throw JSONError.ConversionFailed
-                }
+                print(resultJson)
                 
-                dataDownloadedBlock(resultArray)
+                try dataDownloadedBlock(dataDownloaded)
             }
             catch let error as JSONError
             {

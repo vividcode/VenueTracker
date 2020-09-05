@@ -52,27 +52,20 @@ class VenueFetcher: Fetcher
         
         NetworkManager.sharedInstance.fetchFromRest(urlStr: urlStr, timeOut: self.timeInterval, dataDownloadedBlock:
         {
-            (venueArray) in
+            (data) in
             
+            let decoder = JSONDecoder.init()
+
+            let venueJson = try decoder.decode(VenueJson.self, from: data)
+            let venueArray = venueJson.venues
             let fetchCount = min(ResultLimit.VenueList, venueArray.count)
+            let throttledVenueArray = Array(venueArray.prefix(fetchCount))
             
-            print("fetchCount: \(fetchCount)")
-            
-            let throttledVenueArray = (venueArray as! [[String:Any]]).prefix(fetchCount)
-            
-            do
-            {
-                let venues = throttledVenueArray.compactMap { (venueJson) -> Venue? in
-                    let venue = Venue(venueJson: venueJson)
-                    return (venue)
-               }
-                
-                venues.forEach { (v) in
-                    v.toDataModel()
-                }
-               
-                self.updatePresenter(venueList: venues, shouldShowError: false)
+            throttledVenueArray.forEach { (v) in
+                v.toDataModel()
             }
+           
+            self.updatePresenter(venueList: throttledVenueArray, shouldShowError: false)
         },
         noDataBlock: {
             let venues = Venue.getAll() as! [Venue]
